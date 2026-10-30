@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospedaje | Naturaleza y Descanso</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración para Modo Oscuro en Tailwind -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -15,7 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
     <style>
-        /* Ocultar barra de scroll en el carrusel manteniendo la funcionalidad */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -81,13 +79,12 @@
         </div>
     </section>
 
-    <!-- Opciones de Hospedaje (Con Carrusel Nativo) -->
+    <!-- Opciones de Hospedaje -->
     <section id="habitaciones" class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
         <div class="max-w-7xl mx-auto px-4">
             <h2 data-i18n="rooms-title" class="text-3xl font-bold text-center mb-12 dark:text-white">Nuestras Opciones</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Opción 1: Cabaña Familiar -->
+                <!-- Cabaña Familiar -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-colors duration-300">
                     <div class="relative w-full h-48 group">
                         <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full hide-scrollbar">
@@ -110,7 +107,7 @@
                     </div>
                 </div>
 
-                <!-- Opción 2: Suite Parejas -->
+                <!-- Suite Parejas -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-colors duration-300">
                     <div class="relative w-full h-48 group">
                         <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full hide-scrollbar">
@@ -133,7 +130,7 @@
                     </div>
                 </div>
 
-                <!-- Opción 3: Estudio Rústico -->
+                <!-- Estudio Rústico -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-colors duration-300">
                     <div class="relative w-full h-48 group">
                         <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full hide-scrollbar">
@@ -155,34 +152,91 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reseñas / Testimonios de Airbnb -->
+    <section id="resenas" class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 data-i18n="rev-title" class="text-3xl font-bold text-center mb-12 dark:text-white">Lo que dicen nuestros huéspedes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Reseña 1 -->
+                <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 relative hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-4xl text-green-200 dark:text-green-900/50 absolute top-4 left-4"></i>
+                    <div class="flex items-center space-x-1 text-yellow-400 mb-4 mt-2 relative z-10">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p data-i18n="rev-1-text" class="text-gray-600 dark:text-gray-300 italic mb-6 relative z-10">"Un lugar increíble para desconectar. Las cabañas están impecables, el entorno natural es bellísimo y la atención fue de primera. Definitivamente volveremos."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">M</div>
+                        <div>
+                            <p class="font-bold text-gray-800 dark:text-white text-sm">María S.</p>
+                            <p data-i18n="rev-guest" class="text-xs text-gray-500 dark:text-gray-400">Huésped de Airbnb</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reseña 2 -->
+                <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 relative hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-4xl text-green-200 dark:text-green-900/50 absolute top-4 left-4"></i>
+                    <div class="flex items-center space-x-1 text-yellow-400 mb-4 mt-2 relative z-10">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p data-i18n="rev-2-text" class="text-gray-600 dark:text-gray-300 italic mb-6 relative z-10">"La mejor opción si buscas paz. Tomamos el tour a caballo y los masajes, todo estuvo perfectamente coordinado. La cama era muy cómoda."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">J</div>
+                        <div>
+                            <p class="font-bold text-gray-800 dark:text-white text-sm">John D.</p>
+                            <p data-i18n="rev-guest" class="text-xs text-gray-500 dark:text-gray-400">Huésped de Airbnb</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reseña 3 -->
+                <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 relative hover:shadow-md transition">
+                    <i class="fas fa-quote-left text-4xl text-green-200 dark:text-green-900/50 absolute top-4 left-4"></i>
+                    <div class="flex items-center space-x-1 text-yellow-400 mb-4 mt-2 relative z-10">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p data-i18n="rev-3-text" class="text-gray-600 dark:text-gray-300 italic mb-6 relative z-10">"Excelente ubicación para visitar las aguas termales y luego descansar rodeado de naturaleza. El desayuno que sirven a la habitación es delicioso."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-rose-600 text-white rounded-full flex items-center justify-center font-bold">A</div>
+                        <div>
+                            <p class="font-bold text-gray-800 dark:text-white text-sm">Andrea V.</p>
+                            <p data-i18n="rev-guest" class="text-xs text-gray-500 dark:text-gray-400">Huésped de Airbnb</p>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
     </section>
 
     <!-- Módulo de Experiencias -->
-    <section id="experiencias" class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
+    <section id="experiencias" class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
         <div class="max-w-7xl mx-auto px-4">
             <h2 data-i18n="exp-title" class="text-3xl font-bold text-center mb-4 dark:text-white">Experiencias y Aventura</h2>
             <p data-i18n="exp-desc" class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Complementa tu estadía con actividades inolvidables. Organiza tus tours y momentos de relajación directamente con nosotros.</p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
                     <div class="w-16 h-16 mx-auto bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition"><i class="fas fa-water"></i></div>
                     <h3 data-i18n="exp-1-title" class="font-bold mb-2 dark:text-white">Aguas Termales & Rafting</h3>
                     <p data-i18n="exp-1-desc" class="text-sm text-gray-600 dark:text-gray-400">Aventura en los rápidos y relajación total en las piscinas naturales.</p>
                 </div>
-                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
                     <div class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition"><i class="fas fa-horse"></i></div>
                     <h3 data-i18n="exp-2-title" class="font-bold mb-2 dark:text-white">Tour a Caballo</h3>
                     <p data-i18n="exp-2-desc" class="text-sm text-gray-600 dark:text-gray-400">Recorridos guiados para disfrutar de la naturaleza desde otra perspectiva.</p>
                 </div>
-                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
                     <div class="w-16 h-16 mx-auto bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition"><i class="fas fa-tree"></i></div>
                     <h3 data-i18n="exp-3-title" class="font-bold mb-2 dark:text-white">Canopy & Caminatas</h3>
                     <p data-i18n="exp-3-desc" class="text-sm text-gray-600 dark:text-gray-400">Sobrevuela el bosque en canopy o descubre la vida silvestre en nuestras caminatas nocturnas.</p>
                 </div>
-                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
                     <div class="w-16 h-16 mx-auto bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition"><i class="fas fa-spa"></i></div>
                     <h3 data-i18n="exp-4-title" class="font-bold mb-2 dark:text-white">Masajes Relajantes</h3>
                     <p data-i18n="exp-4-desc" class="text-sm text-gray-600 dark:text-gray-400">Renueva tu energía con sesiones de terapia corporal a tu disposición.</p>
@@ -191,7 +245,7 @@
         </div>
     </section>
 
-    <!-- Planificador: Clima y Cotizador -->
+    <!-- Planificador: Clima y Cotizador (Con Fechas) -->
     <section id="planificador" class="py-16 bg-gray-100 dark:bg-gray-800 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
         <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-8">
             
@@ -212,6 +266,7 @@
                 <h3 data-i18n="pkg-title" class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Cotiza tu Paquete Personalizado</h3>
                 <form id="package-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Alojamiento -->
                         <div>
                             <label data-i18n="pkg-lbl-room" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Alojamiento de interés</label>
                             <select id="pkg-room" class="w-full rounded-lg border-gray-300 dark:border-gray-600 shadow-sm p-3 border focus:ring-green-500 bg-gray-50 dark:bg-gray-800 dark:text-white">
@@ -221,9 +276,20 @@
                                 <option value="Aún no lo decido">Aún no lo decido</option>
                             </select>
                         </div>
+                        <!-- Personas -->
                         <div>
                             <label data-i18n="pkg-lbl-guests" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Número de Personas</label>
                             <input type="number" id="pkg-guests" min="1" value="2" class="w-full rounded-lg border-gray-300 dark:border-gray-600 shadow-sm p-3 border focus:ring-green-500 bg-gray-50 dark:bg-gray-800 dark:text-white">
+                        </div>
+                        <!-- Check-in -->
+                        <div>
+                            <label data-i18n="pkg-lbl-checkin" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha de Check-in</label>
+                            <input type="date" id="pkg-checkin" class="w-full rounded-lg border-gray-300 dark:border-gray-600 shadow-sm p-3 border focus:ring-green-500 bg-gray-50 dark:bg-gray-800 dark:text-white">
+                        </div>
+                        <!-- Check-out -->
+                        <div>
+                            <label data-i18n="pkg-lbl-checkout" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha de Check-out</label>
+                            <input type="date" id="pkg-checkout" class="w-full rounded-lg border-gray-300 dark:border-gray-600 shadow-sm p-3 border focus:ring-green-500 bg-gray-50 dark:bg-gray-800 dark:text-white">
                         </div>
                     </div>
 
@@ -299,7 +365,7 @@
 
     <!-- LÓGICA JAVASCRIPT -->
     <script>
-        // 1. ANIMACIONES SCROLL
+        // 1. ANIMACIONES SCROLL Y CONFIGURACIÓN DE FECHAS
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -313,6 +379,11 @@
             document.querySelectorAll('.fade-section').forEach(section => {
                 observer.observe(section);
             });
+
+            // Establecer fecha mínima para los inputs (Hoy)
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('pkg-checkin').setAttribute('min', today);
+            document.getElementById('pkg-checkout').setAttribute('min', today);
         });
 
         // 2. MODO OSCURO
@@ -340,13 +411,17 @@
                 "room-1-title": "Cabaña Familiar", "room-1-desc": "Ideal para familias o grupos. Espacio amplio, cocina equipada y terraza privada.",
                 "room-2-title": "Suite Parejas", "room-2-desc": "Un espacio íntimo y acogedor, perfecto para escapadas románticas con vistas increíbles.",
                 "room-3-title": "Estudio Rústico", "room-3-desc": "Diseño tradicional con todas las comodidades modernas. Excelente iluminación natural.",
+                "rev-title": "Lo que dicen nuestros huéspedes", "rev-guest": "Huésped de Airbnb",
+                "rev-1-text": '"Un lugar increíble para desconectar. Las cabañas están impecables, el entorno natural es bellísimo y la atención fue de primera. Definitivamente volveremos."',
+                "rev-2-text": '"La mejor opción si buscas paz. Tomamos el tour a caballo y los masajes, todo estuvo perfectamente coordinado. La cama era muy cómoda."',
+                "rev-3-text": '"Excelente ubicación para visitar las aguas termales y luego descansar rodeado de naturaleza. El desayuno que sirven a la habitación es delicioso."',
                 "exp-title": "Experiencias y Aventura", "exp-desc": "Complementa tu estadía con actividades inolvidables. Organiza tus tours y momentos de relajación directamente con nosotros.",
                 "exp-1-title": "Aguas Termales & Rafting", "exp-1-desc": "Aventura en los rápidos y relajación total en las piscinas naturales.",
                 "exp-2-title": "Tour a Caballo", "exp-2-desc": "Recorridos guiados para disfrutar de la naturaleza desde otra perspectiva.",
                 "exp-3-title": "Canopy & Caminatas", "exp-3-desc": "Sobrevuela el bosque en canopy o descubre la vida silvestre en nuestras caminatas nocturnas.",
                 "exp-4-title": "Masajes Relajantes", "exp-4-desc": "Renueva tu energía con sesiones de terapia corporal a tu disposición.",
                 "weather-title": "Clima en la Zona", "weather-desc": "Ideal para planificar tus tours",
-                "pkg-title": "Cotiza tu Paquete", "pkg-lbl-room": "Alojamiento", "pkg-lbl-guests": "Número de Personas", "pkg-lbl-exp": "Selecciona las experiencias que deseas agregar:",
+                "pkg-title": "Cotiza tu Paquete", "pkg-lbl-room": "Alojamiento", "pkg-lbl-guests": "Número de Personas", "pkg-lbl-checkin": "Fecha de Check-in", "pkg-lbl-checkout": "Fecha de Check-out", "pkg-lbl-exp": "Selecciona las experiencias que deseas agregar:",
                 "pkg-exp-1": "Aguas Termales & Rafting", "pkg-exp-2": "Tour a Caballo", "pkg-exp-3": "Canopy & Caminatas", "pkg-exp-4": "Masajes Relajantes", "pkg-exp-5": "Servicio de Alimentación (Desayunos, Almuerzos, Cenas)",
                 "pkg-btn": "Cotizar por WhatsApp",
                 "loc-title": "Nuestra Ubicación", "loc-desc": "Estamos ubicados en un punto estratégico. Utiliza el siguiente enlace para llegar fácilmente.", "loc-btn": "Abrir en Google Maps",
@@ -362,13 +437,17 @@
                 "room-1-title": "Family Cabin", "room-1-desc": "Ideal for families or groups. Ample space, equipped kitchen and private terrace.",
                 "room-2-title": "Couples Suite", "room-2-desc": "An intimate and cozy space, perfect for romantic getaways with incredible views.",
                 "room-3-title": "Rustic Studio", "room-3-desc": "Traditional design with all modern comforts. Excellent natural lighting.",
+                "rev-title": "What our guests say", "rev-guest": "Airbnb Guest",
+                "rev-1-text": '"An incredible place to disconnect. The cabins are spotless, the natural environment is beautiful, and the service was top-notch. We will definitely return."',
+                "rev-2-text": '"The best option if you are looking for peace. We took the horseback riding tour and massages, everything was perfectly coordinated. The bed was very comfortable."',
+                "rev-3-text": '"Excellent location to visit the hot springs and then rest surrounded by nature. The breakfast served to the room is delicious."',
                 "exp-title": "Experiences & Adventure", "exp-desc": "Complement your stay with unforgettable activities. Organize your tours directly with us.",
                 "exp-1-title": "Hot Springs & Rafting", "exp-1-desc": "Adventure in the rapids and total relaxation in natural pools.",
                 "exp-2-title": "Horseback Riding", "exp-2-desc": "Guided tours to enjoy nature from another perspective.",
                 "exp-3-title": "Canopy & Hiking", "exp-3-desc": "Fly over the forest canopy or discover wildlife on night walks.",
                 "exp-4-title": "Relaxing Massages", "exp-4-desc": "Renew your energy with body therapy sessions at your disposal.",
                 "weather-title": "Local Weather", "weather-desc": "Ideal for planning your tours",
-                "pkg-title": "Quote your Package", "pkg-lbl-room": "Lodging", "pkg-lbl-guests": "Number of Guests", "pkg-lbl-exp": "Select the experiences you want to add:",
+                "pkg-title": "Quote your Package", "pkg-lbl-room": "Lodging", "pkg-lbl-guests": "Number of Guests", "pkg-lbl-checkin": "Check-in Date", "pkg-lbl-checkout": "Check-out Date", "pkg-lbl-exp": "Select the experiences you want to add:",
                 "pkg-exp-1": "Hot Springs & Rafting", "pkg-exp-2": "Horseback Riding", "pkg-exp-3": "Canopy & Hiking", "pkg-exp-4": "Relaxing Massages", "pkg-exp-5": "Food Service (Breakfast, Lunch, Dinner)",
                 "pkg-btn": "Get quote via WhatsApp",
                 "loc-title": "Our Location", "loc-desc": "We are strategically located. Use the link below to get here easily.", "loc-btn": "Open in Google Maps",
@@ -385,7 +464,7 @@
             });
         }
 
-        // 4. SOCIAL PROOF (Vistas, Top Países)
+        // 4. SOCIAL PROOF
         const socialProofData = [
             { es: "Alguien de Suiza está viendo disponibilidad", en: "Someone from Switzerland is checking availability" },
             { es: "Un usuario de Alemania está consultando fechas", en: "A user from Germany is checking dates" },
@@ -415,18 +494,28 @@
         setInterval(showSocialProof, 22000);
         setTimeout(showSocialProof, 4000);
 
-        // 5. COTIZADOR WHATSAPP
+        // 5. COTIZADOR WHATSAPP CON FECHAS
         function generateWhatsAppPackage() {
             const room = document.getElementById('pkg-room').value;
             const guests = document.getElementById('pkg-guests').value;
+            const checkin = document.getElementById('pkg-checkin').value;
+            const checkout = document.getElementById('pkg-checkout').value;
             
             const checkboxes = document.querySelectorAll('.pkg-experience:checked');
             let experiences = [];
             checkboxes.forEach((cb) => experiences.push(cb.value));
 
             let msg = currentLang === 'es' 
-                ? `¡Hola! Me gustaría cotizar:\n🏨 *Alojamiento:* ${room}\n👥 *Personas:* ${guests}\n\n`
-                : `Hello! I would like a quote:\n🏨 *Lodging:* ${room}\n👥 *Guests:* ${guests}\n\n`;
+                ? `¡Hola! Me gustaría cotizar:\n🏨 *Alojamiento:* ${room}\n👥 *Personas:* ${guests}\n`
+                : `Hello! I would like a quote:\n🏨 *Lodging:* ${room}\n👥 *Guests:* ${guests}\n`;
+
+            if (checkin && checkout) {
+                msg += currentLang === 'es' ? `📅 *Fechas:* Del ${checkin} al ${checkout}\n\n` : `📅 *Dates:* From ${checkin} to ${checkout}\n\n`;
+            } else if (checkin) {
+                msg += currentLang === 'es' ? `📅 *Check-in:* ${checkin}\n\n` : `📅 *Check-in:* ${checkin}\n\n`;
+            } else {
+                msg += `\n`;
+            }
 
             if (experiences.length > 0) {
                 msg += `✨ *Extras que me interesan:*\n- ${experiences.join('\n- ')}`;
