@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedaje | Naturaleza y Descanso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SDK de PayPal: Debes reemplazar 'test' con el Client ID real de la cuenta de PayPal -->
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navegación -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="text-2xl font-bold text-green-700">HospedajeDescanso</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#ventajas" class="hover:text-green-600 transition">Ventajas</a>
+                    <a href="#habitaciones" class="hover:text-green-600 transition">Opciones</a>
+                    <a href="#ubicacion" class="hover:text-green-600 transition">Ubicación</a>
+                </div>
+                <a href="https://wa.me/50687099538" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                    <i class="fab fa-whatsapp mr-2"></i>Contáctanos
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-12 md:pt-32 md:pb-20 text-center bg-gradient-to-b from-green-50 to-gray-50 px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Tu escape perfecto a la naturaleza</h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">Descubre nuestras opciones de hospedaje diseñadas para brindarte paz, comodidad y una experiencia inolvidable.</p>
+        <a href="#habitaciones" class="bg-green-700 text-white px-8 py-3 rounded-full text-lg font-bold shadow-lg hover:bg-green-800 transition transform hover:-translate-y-1">Ver Alojamientos</a>
+    </header>
+
+    <!-- Ventajas -->
+    <section id="ventajas" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-10">¿Por qué elegirnos?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <i class="fas fa-leaf text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Entorno Natural</h3>
+                    <p class="text-gray-600">Rodeado de naturaleza, ideal para desconectar de la rutina.</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-wifi text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Comodidad Total</h3>
+                    <p class="text-gray-600">Equipamiento completo para que te sientas como en casa.</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-map-marked-alt text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Excelente Ubicación</h3>
+                    <p class="text-gray-600">Fácil acceso y cerca de atractivos turísticos locales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opciones de Hospedaje -->
+    <section id="habitaciones" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Nuestras Opciones</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Opción 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cabaña 1" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2">Cabaña Familiar</h3>
+                        <p class="text-gray-600 text-sm mb-4">Ideal para familias o grupos. Espacio amplio, cocina equipada y terraza privada.</p>
+                        <div class="mt-auto space-y-3">
+                            <a href="https://www.airbnb.mx/rooms/1804644948837495315?unique_share_id=521fc1b9-64c3-4e9f-952d-b5fd61528e98&viralityEntryPoint=1&s=76" target="_blank" class="block w-full text-center border-2 border-rose-500 text-rose-500 font-bold py-2 rounded-lg hover:bg-rose-50 transition">
+                                <i class="fab fa-airbnb mr-2"></i>Ver en Airbnb
+                            </a>
+                            <div id="paypal-button-container-1" class="z-0"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opción 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cabaña 2" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2">Suite Parejas</h3>
+                        <p class="text-gray-600 text-sm mb-4">Un espacio íntimo y acogedor, perfecto para escapadas románticas con vistas increíbles.</p>
+                        <div class="mt-auto space-y-3">
+                            <a href="https://www.airbnb.mx/rooms/1293799830440487852?unique_share_id=e254b20d-bc0e-439c-8d14-106ff2956caa&viralityEntryPoint=1&s=76" target="_blank" class="block w-full text-center border-2 border-rose-500 text-rose-500 font-bold py-2 rounded-lg hover:bg-rose-50 transition">
+                                <i class="fab fa-airbnb mr-2"></i>Ver en Airbnb
+                            </a>
+                            <div id="paypal-button-container-2" class="z-0"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opción 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cabaña 3" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2">Estudio Rústico</h3>
+                        <p class="text-gray-600 text-sm mb-4">Diseño tradicional con todas las comodidades modernas. Excelente iluminación natural.</p>
+                        <div class="mt-auto space-y-3">
+                            <a href="https://www.airbnb.mx/rooms/988456864879818369?unique_share_id=ffab125d-317f-427f-86cd-4e8f2a187663&viralityEntryPoint=1&s=76" target="_blank" class="block w-full text-center border-2 border-rose-500 text-rose-500 font-bold py-2 rounded-lg hover:bg-rose-50 transition">
+                                <i class="fab fa-airbnb mr-2"></i>Ver en Airbnb
+                            </a>
+                            <div id="paypal-button-container-3" class="z-0"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación y Contacto -->
+    <section id="ubicacion" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold mb-6">Nuestra Ubicación</h2>
+                <p class="text-gray-600 mb-6">Estamos ubicados en un punto estratégico. Utiliza el siguiente enlace para llegar fácilmente mediante Google Maps.</p>
+                <a href="https://maps.app.goo.gl/Zo6J9n3V8yj61SLQA?g_st=aw" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition mb-6">
+                    <i class="fas fa-map-marker-alt mr-2"></i>Abrir en Google Maps
+                </a>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Atención Directa</h3>
+                    <p class="text-gray-600 mb-4">¿Tienes dudas o peticiones especiales? Escríbenos directamente.</p>
+                    <a href="https://wa.me/50687099538" target="_blank" class="text-green-600 font-bold text-lg hover:underline">
+                        <i class="fab fa-whatsapp mr-2"></i>+506 87099538
+                    </a>
+                </div>
+            </div>
+            <!-- Mapa embebido (Sugerencia de visual) -->
+            <div class="md:w-1/2 h-64 md:h-auto bg-gray-200 rounded-lg overflow-hidden relative shadow-inner flex items-center justify-center">
+               <p class="text-gray-500 text-center px-4">Aquí puedes incrustar el iframe exacto de Google Maps (Compartir > Insertar mapa).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/50687099538" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 transition transform hover:scale-110 z-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Lógica de PayPal -->
+    <script>
+        // Función para renderizar botones
+        function renderPayPalButton(containerId, itemPrice) {
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{ amount: { value: itemPrice } }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('¡Pago completado por ' + details.payer.name.given_name + '! Por favor, contáctanos por WhatsApp para confirmar las fechas.');
+                        window.open('https://wa.me/50687099538?text=Hola,%20acabo%20de%20realizar%20un%20pago%20por%20PayPal.%20Mi%20nombre%20es%20' + details.payer.name.given_name, '_blank');
+                    });
+                }
+            }).render(containerId);
+        }
+
+        // Renderizar para cada opción (Ajustar precios según corresponda)
+        renderPayPalButton('#paypal-button-container-1', '50.00'); // Precio Cabana 1
+        renderPayPalButton('#paypal-button-container-2', '45.00'); // Precio Cabana 2
+        renderPayPalButton('#paypal-button-container-3', '40.00'); // Precio Cabana 3
+    </script>
+</body>
+</html>
