@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospedaje | Naturaleza y Descanso</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Habilitar Modo Oscuro manual en Tailwind -->
+    <!-- Configuración para Modo Oscuro en Tailwind -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -14,6 +14,11 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+    <style>
+        /* Ocultar barra de scroll en el carrusel manteniendo la funcionalidad */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300">
 
@@ -24,22 +29,20 @@
                 <div class="text-2xl font-bold text-green-700 dark:text-green-500">HospedajeDescanso</div>
                 
                 <div class="hidden md:flex space-x-6">
-                    <a href="#ventajas" data-i18n="nav-advantages" class="hover:text-green-600 dark:hover:text-green-400 transition">Ventajas</a>
-                    <a href="#habitaciones" data-i18n="nav-options" class="hover:text-green-600 dark:hover:text-green-400 transition">Opciones</a>
-                    <a href="#experiencias" data-i18n="nav-experiences" class="hover:text-green-600 dark:hover:text-green-400 transition">Experiencias</a>
+                    <a href="#ventajas" data-i18n="nav-advantages" class="hover:text-green-600 dark:hover:text-green-400 transition font-medium">Ventajas</a>
+                    <a href="#habitaciones" data-i18n="nav-options" class="hover:text-green-600 dark:hover:text-green-400 transition font-medium">Opciones</a>
+                    <a href="#experiencias" data-i18n="nav-experiences" class="hover:text-green-600 dark:hover:text-green-400 transition font-medium">Experiencias</a>
                 </div>
 
                 <div class="flex items-center space-x-3">
-                    <!-- Botón Modo Oscuro -->
                     <button onclick="toggleDarkMode()" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-2 py-1.5 transition text-lg">
                         <i id="theme-icon" class="fas fa-moon"></i>
                     </button>
-                    <!-- Botón Idioma -->
                     <button onclick="toggleLanguage()" class="flex items-center space-x-1 border border-green-600 text-green-700 dark:border-green-400 dark:text-green-400 px-3 py-1.5 rounded-full hover:bg-green-50 dark:hover:bg-gray-700 transition font-bold text-sm">
                         <i class="fas fa-globe"></i>
                         <span id="lang-indicator">EN</span>
                     </button>
-                    <a href="https://wa.me/50687099538" target="_blank" class="hidden md:flex bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                    <a href="https://wa.me/50687099538" target="_blank" class="hidden md:flex bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition shadow-sm">
                         <i class="fab fa-whatsapp mr-2 mt-1"></i><span data-i18n="nav-contact">Contáctanos</span>
                     </a>
                 </div>
@@ -48,21 +51,53 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="pt-24 pb-12 md:pt-32 md:pb-20 text-center bg-gradient-to-b from-green-50 to-gray-50 dark:from-gray-800 dark:to-gray-900 px-4 transition-colors duration-300">
+    <header class="pt-24 pb-12 md:pt-32 md:pb-20 text-center bg-gradient-to-b from-green-50 to-gray-50 dark:from-gray-800 dark:to-gray-900 px-4 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
         <h1 data-i18n="hero-title" class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Tu escape perfecto a la naturaleza</h1>
         <p data-i18n="hero-subtitle" class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">Descubre nuestras opciones de hospedaje diseñadas para brindarte paz, comodidad y una experiencia inolvidable.</p>
         <a href="#habitaciones" data-i18n="hero-btn" class="bg-green-700 dark:bg-green-600 text-white px-8 py-3 rounded-full text-lg font-bold shadow-lg hover:bg-green-800 transition transform hover:-translate-y-1 inline-block">Ver Alojamientos</a>
     </header>
 
-    <!-- Opciones de Hospedaje -->
-    <section id="habitaciones" class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Ventajas -->
+    <section id="ventajas" class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 data-i18n="adv-title" class="text-3xl font-bold text-center mb-10 dark:text-white">¿Por qué elegirnos?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <i class="fas fa-leaf text-4xl text-green-600 dark:text-green-500 mb-4"></i>
+                    <h3 data-i18n="adv-1-title" class="text-xl font-bold mb-2 dark:text-white">Entorno Natural</h3>
+                    <p data-i18n="adv-1-desc" class="text-gray-600 dark:text-gray-300">Rodeado de naturaleza, ideal para desconectar de la rutina.</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-wifi text-4xl text-green-600 dark:text-green-500 mb-4"></i>
+                    <h3 data-i18n="adv-2-title" class="text-xl font-bold mb-2 dark:text-white">Comodidad Total</h3>
+                    <p data-i18n="adv-2-desc" class="text-gray-600 dark:text-gray-300">Equipamiento completo para que te sientas como en casa.</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-map-marked-alt text-4xl text-green-600 dark:text-green-500 mb-4"></i>
+                    <h3 data-i18n="adv-3-title" class="text-xl font-bold mb-2 dark:text-white">Excelente Ubicación</h3>
+                    <p data-i18n="adv-3-desc" class="text-gray-600 dark:text-gray-300">Fácil acceso y cerca de atractivos turísticos locales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opciones de Hospedaje (Con Carrusel Nativo) -->
+    <section id="habitaciones" class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
         <div class="max-w-7xl mx-auto px-4">
             <h2 data-i18n="rooms-title" class="text-3xl font-bold text-center mb-12 dark:text-white">Nuestras Opciones</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- Opción 1 -->
+                <!-- Opción 1: Cabaña Familiar -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-colors duration-300">
-                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cabaña 1" class="w-full h-48 object-cover">
+                    <div class="relative w-full h-48 group">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full hide-scrollbar">
+                            <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="snap-center min-w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="snap-center min-w-full h-full object-cover">
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full pointer-events-none">
+                            <i class="fas fa-arrows-left-right mr-1"></i> <span data-i18n="swipe-hint">Desliza</span>
+                        </div>
+                    </div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 data-i18n="room-1-title" class="text-xl font-bold mb-2 dark:text-white">Cabaña Familiar</h3>
                         <p data-i18n="room-1-desc" class="text-gray-600 dark:text-gray-300 text-sm mb-4">Ideal para familias o grupos. Espacio amplio, cocina equipada y terraza privada.</p>
@@ -75,9 +110,17 @@
                     </div>
                 </div>
 
-                <!-- Opción 2 -->
+                <!-- Opción 2: Suite Parejas -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-colors duration-300">
-                    <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cabaña 2" class="w-full h-48 object-cover">
+                    <div class="relative w-full h-48 group">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full hide-scrollbar">
+                            <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="snap-center min-w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="snap-center min-w-full h-full object-cover">
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full pointer-events-none">
+                            <i class="fas fa-arrows-left-right mr-1"></i> <span data-i18n="swipe-hint">Desliza</span>
+                        </div>
+                    </div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 data-i18n="room-2-title" class="text-xl font-bold mb-2 dark:text-white">Suite Parejas</h3>
                         <p data-i18n="room-2-desc" class="text-gray-600 dark:text-gray-300 text-sm mb-4">Un espacio íntimo y acogedor, perfecto para escapadas románticas con vistas increíbles.</p>
@@ -90,9 +133,17 @@
                     </div>
                 </div>
 
-                <!-- Opción 3 -->
+                <!-- Opción 3: Estudio Rústico -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-colors duration-300">
-                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cabaña 3" class="w-full h-48 object-cover">
+                    <div class="relative w-full h-48 group">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full hide-scrollbar">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="snap-center min-w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1499955085172-a104c9463ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="snap-center min-w-full h-full object-cover">
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full pointer-events-none">
+                            <i class="fas fa-arrows-left-right mr-1"></i> <span data-i18n="swipe-hint">Desliza</span>
+                        </div>
+                    </div>
                     <div class="p-6 flex-grow flex flex-col">
                         <h3 data-i18n="room-3-title" class="text-xl font-bold mb-2 dark:text-white">Estudio Rústico</h3>
                         <p data-i18n="room-3-desc" class="text-gray-600 dark:text-gray-300 text-sm mb-4">Diseño tradicional con todas las comodidades modernas. Excelente iluminación natural.</p>
@@ -109,11 +160,55 @@
         </div>
     </section>
 
-    <!-- Planificador: Clima y Paquetes (Modo Oscuro Adaptado) -->
-    <section id="planificador" class="py-16 bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
+    <!-- Módulo de Experiencias -->
+    <section id="experiencias" class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 data-i18n="exp-title" class="text-3xl font-bold text-center mb-4 dark:text-white">Experiencias y Aventura</h2>
+            <p data-i18n="exp-desc" class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Complementa tu estadía con actividades inolvidables. Organiza tus tours y momentos de relajación directamente con nosotros.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition"><i class="fas fa-water"></i></div>
+                    <h3 data-i18n="exp-1-title" class="font-bold mb-2 dark:text-white">Aguas Termales & Rafting</h3>
+                    <p data-i18n="exp-1-desc" class="text-sm text-gray-600 dark:text-gray-400">Aventura en los rápidos y relajación total en las piscinas naturales.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
+                    <div class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition"><i class="fas fa-horse"></i></div>
+                    <h3 data-i18n="exp-2-title" class="font-bold mb-2 dark:text-white">Tour a Caballo</h3>
+                    <p data-i18n="exp-2-desc" class="text-sm text-gray-600 dark:text-gray-400">Recorridos guiados para disfrutar de la naturaleza desde otra perspectiva.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
+                    <div class="w-16 h-16 mx-auto bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition"><i class="fas fa-tree"></i></div>
+                    <h3 data-i18n="exp-3-title" class="font-bold mb-2 dark:text-white">Canopy & Caminatas</h3>
+                    <p data-i18n="exp-3-desc" class="text-sm text-gray-600 dark:text-gray-400">Sobrevuela el bosque en canopy o descubre la vida silvestre en nuestras caminatas nocturnas.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 p-6 text-center hover:shadow-lg transition group">
+                    <div class="w-16 h-16 mx-auto bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition"><i class="fas fa-spa"></i></div>
+                    <h3 data-i18n="exp-4-title" class="font-bold mb-2 dark:text-white">Masajes Relajantes</h3>
+                    <p data-i18n="exp-4-desc" class="text-sm text-gray-600 dark:text-gray-400">Renueva tu energía con sesiones de terapia corporal a tu disposición.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planificador: Clima y Cotizador -->
+    <section id="planificador" class="py-16 bg-gray-100 dark:bg-gray-800 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
         <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-8">
+            
+            <!-- Widget Clima -->
+            <div class="lg:w-1/3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-8 shadow-md flex flex-col justify-center items-center text-center border border-blue-100 dark:border-blue-800">
+                <h3 data-i18n="weather-title" class="text-2xl font-bold text-blue-900 dark:text-blue-300 mb-2">Clima en la Zona</h3>
+                <p data-i18n="weather-desc" class="text-blue-700 dark:text-blue-400 text-sm mb-6">Ideal para planificar tus tours</p>
+                <div id="weather-container" class="flex flex-col items-center">
+                    <div class="animate-pulse flex flex-col items-center">
+                        <div class="rounded-full bg-blue-200 dark:bg-blue-800 h-16 w-16 mb-4"></div>
+                        <div class="h-6 bg-blue-200 dark:bg-blue-800 rounded w-24 mb-2"></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Creador de Paquetes -->
-            <div class="lg:w-full bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-md border border-gray-200 dark:border-gray-700 transition-colors">
+            <div class="lg:w-2/3 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-md border border-gray-200 dark:border-gray-700 transition-colors">
                 <h3 data-i18n="pkg-title" class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Cotiza tu Paquete Personalizado</h3>
                 <form id="package-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -131,7 +226,34 @@
                             <input type="number" id="pkg-guests" min="1" value="2" class="w-full rounded-lg border-gray-300 dark:border-gray-600 shadow-sm p-3 border focus:ring-green-500 bg-gray-50 dark:bg-gray-800 dark:text-white">
                         </div>
                     </div>
-                    <button type="button" onclick="generateWhatsAppPackage()" class="w-full bg-green-600 text-white font-bold py-4 rounded-xl hover:bg-green-700 transition shadow-lg flex justify-center items-center">
+
+                    <div>
+                        <label data-i18n="pkg-lbl-exp" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Selecciona las experiencias que deseas agregar:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center space-x-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-green-50 dark:hover:bg-gray-700 transition">
+                                <input type="checkbox" value="Aguas Termales & Rafting" class="pkg-experience form-checkbox h-5 w-5 text-green-600 rounded">
+                                <span data-i18n="pkg-exp-1" class="text-gray-700 dark:text-gray-300 font-medium text-sm">Aguas Termales & Rafting</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-green-50 dark:hover:bg-gray-700 transition">
+                                <input type="checkbox" value="Tour a Caballo" class="pkg-experience form-checkbox h-5 w-5 text-green-600 rounded">
+                                <span data-i18n="pkg-exp-2" class="text-gray-700 dark:text-gray-300 font-medium text-sm">Tour a Caballo</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-green-50 dark:hover:bg-gray-700 transition">
+                                <input type="checkbox" value="Canopy & Caminatas" class="pkg-experience form-checkbox h-5 w-5 text-green-600 rounded">
+                                <span data-i18n="pkg-exp-3" class="text-gray-700 dark:text-gray-300 font-medium text-sm">Canopy & Caminatas</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-green-50 dark:hover:bg-gray-700 transition">
+                                <input type="checkbox" value="Masajes Relajantes" class="pkg-experience form-checkbox h-5 w-5 text-green-600 rounded">
+                                <span data-i18n="pkg-exp-4" class="text-gray-700 dark:text-gray-300 font-medium text-sm">Masajes Relajantes</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-green-50 dark:hover:bg-gray-700 transition sm:col-span-2">
+                                <input type="checkbox" value="Servicio de Alimentación" class="pkg-experience form-checkbox h-5 w-5 text-green-600 rounded">
+                                <span data-i18n="pkg-exp-5" class="text-gray-700 dark:text-gray-300 font-medium text-sm">Servicio de Alimentación (Desayunos, Almuerzos, Cenas)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="generateWhatsAppPackage()" class="w-full bg-green-600 text-white font-bold py-4 rounded-xl hover:bg-green-700 transition shadow-lg flex justify-center items-center transform hover:scale-[1.02]">
                         <i class="fab fa-whatsapp text-2xl mr-2"></i> <span data-i18n="pkg-btn">Cotizar mi paquete por WhatsApp</span>
                     </button>
                 </form>
@@ -139,13 +261,33 @@
         </div>
     </section>
 
-    <!-- Social Proof Toast (Notificación Flotante) -->
+    <!-- Ubicación y Contacto -->
+    <section id="ubicacion" class="py-16 bg-white dark:bg-gray-900 transition-colors duration-300 fade-section opacity-0 transform translate-y-10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+                <h2 data-i18n="loc-title" class="text-3xl font-bold mb-6 dark:text-white">Nuestra Ubicación</h2>
+                <p data-i18n="loc-desc" class="text-gray-600 dark:text-gray-300 mb-6">Estamos ubicados en un punto estratégico. Utiliza el siguiente enlace para llegar fácilmente.</p>
+                <a href="https://maps.app.goo.gl/Zo6J9n3V8yj61SLQA?g_st=aw" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition mb-6 shadow-md">
+                    <i class="fas fa-map-marker-alt mr-2"></i><span data-i18n="loc-btn">Abrir en Google Maps</span>
+                </a>
+                <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 data-i18n="loc-contact-title" class="font-bold text-lg mb-2 dark:text-white">Atención Directa</h3>
+                    <p data-i18n="loc-contact-desc" class="text-gray-600 dark:text-gray-400 mb-4">¿Tienes dudas o peticiones especiales? Escríbenos directamente.</p>
+                    <a href="https://wa.me/50687099538" target="_blank" class="text-green-600 dark:text-green-400 font-bold text-lg hover:underline">
+                        <i class="fab fa-whatsapp mr-2"></i>+506 87099538
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Toast -->
     <div id="social-proof-toast" class="fixed bottom-6 left-6 bg-white dark:bg-gray-800 border-l-4 border-green-500 shadow-xl rounded-r-lg p-4 transform transition-all duration-500 translate-y-32 opacity-0 z-40 flex items-center space-x-3 pointer-events-none">
         <div class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-sm">
-            <i class="fas fa-bell"></i>
+            <i class="fas fa-eye"></i>
         </div>
         <div>
-            <p id="sp-message" class="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">Alguien de Canadá acaba de reservar</p>
+            <p id="sp-message" class="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight">Alguien de Canadá está consultando</p>
             <p id="sp-time" class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Hace 2 minutos</p>
         </div>
     </div>
@@ -157,42 +299,80 @@
 
     <!-- LÓGICA JAVASCRIPT -->
     <script>
-        // --- 1. MODO OSCURO ---
+        // 1. ANIMACIONES SCROLL
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // 2. MODO OSCURO
         function toggleDarkMode() {
             const htmlElement = document.documentElement;
             const themeIcon = document.getElementById('theme-icon');
-            
             htmlElement.classList.toggle('dark');
-            
             if (htmlElement.classList.contains('dark')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
+                themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun');
             } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
+                themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon');
             }
         }
 
-        // --- 2. TRADUCCIÓN BILINGÜE ---
+        // 3. TRADUCCIÓN BILINGÜE
         let currentLang = 'es';
         const translations = {
             es: {
                 "nav-advantages": "Ventajas", "nav-options": "Opciones", "nav-experiences": "Experiencias", "nav-contact": "Contáctanos",
                 "hero-title": "Tu escape perfecto a la naturaleza", "hero-subtitle": "Descubre nuestras opciones de hospedaje diseñadas para brindarte paz, comodidad y una experiencia inolvidable.", "hero-btn": "Ver Alojamientos",
-                "rooms-title": "Nuestras Opciones", "btn-airbnb": "Ver en Airbnb",
+                "adv-title": "¿Por qué elegirnos?", "adv-1-title": "Entorno Natural", "adv-1-desc": "Rodeado de naturaleza, ideal para desconectar de la rutina.",
+                "adv-2-title": "Comodidad Total", "adv-2-desc": "Equipamiento completo para que te sientas como en casa.",
+                "adv-3-title": "Excelente Ubicación", "adv-3-desc": "Fácil acceso y cerca de atractivos turísticos locales.",
+                "rooms-title": "Nuestras Opciones", "swipe-hint": "Desliza", "btn-airbnb": "Ver en Airbnb",
                 "room-1-title": "Cabaña Familiar", "room-1-desc": "Ideal para familias o grupos. Espacio amplio, cocina equipada y terraza privada.",
                 "room-2-title": "Suite Parejas", "room-2-desc": "Un espacio íntimo y acogedor, perfecto para escapadas románticas con vistas increíbles.",
                 "room-3-title": "Estudio Rústico", "room-3-desc": "Diseño tradicional con todas las comodidades modernas. Excelente iluminación natural.",
-                "pkg-title": "Cotiza tu Paquete", "pkg-lbl-room": "Alojamiento", "pkg-lbl-guests": "Número de Personas", "pkg-btn": "Cotizar por WhatsApp"
+                "exp-title": "Experiencias y Aventura", "exp-desc": "Complementa tu estadía con actividades inolvidables. Organiza tus tours y momentos de relajación directamente con nosotros.",
+                "exp-1-title": "Aguas Termales & Rafting", "exp-1-desc": "Aventura en los rápidos y relajación total en las piscinas naturales.",
+                "exp-2-title": "Tour a Caballo", "exp-2-desc": "Recorridos guiados para disfrutar de la naturaleza desde otra perspectiva.",
+                "exp-3-title": "Canopy & Caminatas", "exp-3-desc": "Sobrevuela el bosque en canopy o descubre la vida silvestre en nuestras caminatas nocturnas.",
+                "exp-4-title": "Masajes Relajantes", "exp-4-desc": "Renueva tu energía con sesiones de terapia corporal a tu disposición.",
+                "weather-title": "Clima en la Zona", "weather-desc": "Ideal para planificar tus tours",
+                "pkg-title": "Cotiza tu Paquete", "pkg-lbl-room": "Alojamiento", "pkg-lbl-guests": "Número de Personas", "pkg-lbl-exp": "Selecciona las experiencias que deseas agregar:",
+                "pkg-exp-1": "Aguas Termales & Rafting", "pkg-exp-2": "Tour a Caballo", "pkg-exp-3": "Canopy & Caminatas", "pkg-exp-4": "Masajes Relajantes", "pkg-exp-5": "Servicio de Alimentación (Desayunos, Almuerzos, Cenas)",
+                "pkg-btn": "Cotizar por WhatsApp",
+                "loc-title": "Nuestra Ubicación", "loc-desc": "Estamos ubicados en un punto estratégico. Utiliza el siguiente enlace para llegar fácilmente.", "loc-btn": "Abrir en Google Maps",
+                "loc-contact-title": "Atención Directa", "loc-contact-desc": "¿Tienes dudas o peticiones especiales? Escríbenos directamente."
             },
             en: {
                 "nav-advantages": "Advantages", "nav-options": "Rooms", "nav-experiences": "Experiences", "nav-contact": "Contact Us",
                 "hero-title": "Your perfect escape to nature", "hero-subtitle": "Discover our lodging options designed to bring you peace, comfort, and an unforgettable experience.", "hero-btn": "View Lodgings",
-                "rooms-title": "Our Options", "btn-airbnb": "View on Airbnb",
+                "adv-title": "Why choose us?", "adv-1-title": "Natural Environment", "adv-1-desc": "Surrounded by nature, ideal to disconnect from routine.",
+                "adv-2-title": "Total Comfort", "adv-2-desc": "Fully equipped so you feel at home.",
+                "adv-3-title": "Excellent Location", "adv-3-desc": "Easy access and close to local tourist attractions.",
+                "rooms-title": "Our Options", "swipe-hint": "Swipe", "btn-airbnb": "View on Airbnb",
                 "room-1-title": "Family Cabin", "room-1-desc": "Ideal for families or groups. Ample space, equipped kitchen and private terrace.",
                 "room-2-title": "Couples Suite", "room-2-desc": "An intimate and cozy space, perfect for romantic getaways with incredible views.",
                 "room-3-title": "Rustic Studio", "room-3-desc": "Traditional design with all modern comforts. Excellent natural lighting.",
-                "pkg-title": "Quote your Package", "pkg-lbl-room": "Lodging", "pkg-lbl-guests": "Number of Guests", "pkg-btn": "Get quote via WhatsApp"
+                "exp-title": "Experiences & Adventure", "exp-desc": "Complement your stay with unforgettable activities. Organize your tours directly with us.",
+                "exp-1-title": "Hot Springs & Rafting", "exp-1-desc": "Adventure in the rapids and total relaxation in natural pools.",
+                "exp-2-title": "Horseback Riding", "exp-2-desc": "Guided tours to enjoy nature from another perspective.",
+                "exp-3-title": "Canopy & Hiking", "exp-3-desc": "Fly over the forest canopy or discover wildlife on night walks.",
+                "exp-4-title": "Relaxing Massages", "exp-4-desc": "Renew your energy with body therapy sessions at your disposal.",
+                "weather-title": "Local Weather", "weather-desc": "Ideal for planning your tours",
+                "pkg-title": "Quote your Package", "pkg-lbl-room": "Lodging", "pkg-lbl-guests": "Number of Guests", "pkg-lbl-exp": "Select the experiences you want to add:",
+                "pkg-exp-1": "Hot Springs & Rafting", "pkg-exp-2": "Horseback Riding", "pkg-exp-3": "Canopy & Hiking", "pkg-exp-4": "Relaxing Massages", "pkg-exp-5": "Food Service (Breakfast, Lunch, Dinner)",
+                "pkg-btn": "Get quote via WhatsApp",
+                "loc-title": "Our Location", "loc-desc": "We are strategically located. Use the link below to get here easily.", "loc-btn": "Open in Google Maps",
+                "loc-contact-title": "Direct Contact", "loc-contact-desc": "Do you have questions or special requests? Write to us directly."
             }
         };
 
@@ -205,55 +385,81 @@
             });
         }
 
-        // --- 3. SOCIAL PROOF (NOTIFICACIONES DINÁMICAS) ---
+        // 4. SOCIAL PROOF (Vistas, Top Países)
         const socialProofData = [
-            { es: "Alguien de Canadá está consultando fechas", en: "Someone from Canada is checking dates", timeEs: "Hace un momento", timeEn: "Just now" },
-            { es: "Un usuario de San José reservó la Suite Parejas", en: "A user from San Jose booked the Couples Suite", timeEs: "Hace 15 minutos", timeEn: "15 mins ago" },
-            { es: "La Cabaña Familiar está siendo vista ahora mismo", en: "The Family Cabin is being viewed right now", timeEs: "Hace 2 minutos", timeEn: "2 mins ago" },
-            { es: "Alguien de Estados Unidos solicitó información", en: "Someone from the USA requested information", timeEs: "Hace 1 hora", timeEn: "1 hour ago" }
+            { es: "Alguien de Suiza está viendo disponibilidad", en: "Someone from Switzerland is checking availability" },
+            { es: "Un usuario de Alemania está consultando fechas", en: "A user from Germany is checking dates" },
+            { es: "Alguien de Canadá está viendo la Suite Parejas", en: "Someone from Canada is viewing the Couples Suite" },
+            { es: "Un usuario de Países Bajos solicitó información", en: "A user from the Netherlands requested information" },
+            { es: "Alguien de Reino Unido está explorando opciones", en: "Someone from the UK is exploring options" }
         ];
 
         function showSocialProof() {
             const toast = document.getElementById('social-proof-toast');
-            // Seleccionar notificación aleatoria
             const randomData = socialProofData[Math.floor(Math.random() * socialProofData.length)];
             
-            // Asignar texto según idioma actual
             document.getElementById('sp-message').innerText = currentLang === 'es' ? randomData.es : randomData.en;
-            document.getElementById('sp-time').innerText = currentLang === 'es' ? randomData.timeEs : randomData.timeEn;
+            const mins = Math.floor(Math.random() * 15) + 1;
+            document.getElementById('sp-time').innerText = currentLang === 'es' 
+                ? (mins === 1 ? "Hace un momento" : `Hace ${mins} minutos`) 
+                : (mins === 1 ? "Just now" : `${mins} mins ago`);
 
-            // Mostrar animación
             toast.classList.remove('translate-y-32', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
 
-            // Ocultar después de 5 segundos
             setTimeout(() => {
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-32', 'opacity-0');
-            }, 5000);
+            }, 6000);
         }
-
-        // Ejecutar notificaciones cada 18 segundos
-        setInterval(showSocialProof, 18000);
-        // Mostrar la primera notificación a los 4 segundos de entrar a la web
+        setInterval(showSocialProof, 22000);
         setTimeout(showSocialProof, 4000);
 
-        // --- 4. COTIZADOR DE WHATSAPP ---
+        // 5. COTIZADOR WHATSAPP
         function generateWhatsAppPackage() {
             const room = document.getElementById('pkg-room').value;
             const guests = document.getElementById('pkg-guests').value;
+            
+            const checkboxes = document.querySelectorAll('.pkg-experience:checked');
+            let experiences = [];
+            checkboxes.forEach((cb) => experiences.push(cb.value));
+
             let msg = currentLang === 'es' 
-                ? `¡Hola! Me gustaría cotizar:\n🏨 *Alojamiento:* ${room}\n👥 *Personas:* ${guests}`
-                : `Hello! I would like a quote:\n🏨 *Lodging:* ${room}\n👥 *Guests:* ${guests}`;
+                ? `¡Hola! Me gustaría cotizar:\n🏨 *Alojamiento:* ${room}\n👥 *Personas:* ${guests}\n\n`
+                : `Hello! I would like a quote:\n🏨 *Lodging:* ${room}\n👥 *Guests:* ${guests}\n\n`;
+
+            if (experiences.length > 0) {
+                msg += `✨ *Extras que me interesan:*\n- ${experiences.join('\n- ')}`;
+            } else {
+                msg += currentLang === 'es' ? `✨ *Extras:* Solo alojamiento por ahora.` : `✨ *Extras:* Just lodging for now.`;
+            }
             window.open(`https://wa.me/50687099538?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // --- 5. PAYPAL (MOCK) ---
+        // 6. WIDGET DE CLIMA
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=10.4674&longitude=-84.6427&current_weather=true`)
+                .then(response => response.json())
+                .then(data => {
+                    const weather = data.current_weather;
+                    let icon = 'fa-sun'; 
+                    if (weather.weathercode >= 1 && weather.weathercode <= 3) icon = 'fa-cloud-sun';
+                    else if (weather.weathercode >= 51) icon = 'fa-cloud-rain text-gray-500';
+
+                    document.getElementById('weather-container').innerHTML = `
+                        <i class="fas ${icon} text-6xl text-blue-500 dark:text-blue-400 mb-4"></i>
+                        <div class="text-6xl font-black text-blue-900 dark:text-blue-100 tracking-tighter">${weather.temperature}°<span class="text-3xl">C</span></div>
+                        <div class="text-sm text-blue-500 dark:text-blue-300 mt-2 font-medium"><i class="fas fa-wind mr-1"></i> ${weather.windspeed} km/h</div>
+                    `;
+                });
+        });
+
+        // 7. PAYPAL
         function renderPayPalButton(containerId, itemPrice) {
             paypal.Buttons({
                 createOrder: (data, actions) => actions.order.create({ purchase_units: [{ amount: { value: itemPrice } }] }),
                 onApprove: (data, actions) => actions.order.capture().then(details => {
-                    alert('¡Pago completado! Serás redirigido a WhatsApp.');
+                    alert(currentLang === 'es' ? '¡Pago completado! Serás redirigido a WhatsApp.' : 'Payment completed! Redirecting to WhatsApp.');
                 })
             }).render(containerId);
         }
