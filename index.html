@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>EDÉN — Eco Bungalows &amp; Sanctuary | La Fortuna, Costa Rica</title>
   <meta name="description" content="Edén Eco Bungalow en La Fortuna de San Carlos, Alajuela, Costa Rica: Eden Anferg, Eden Deluxe Arenal y La Fortuna Edén Eco Bungalow. Reserva en Airbnb o directo mediante PayPal, SINPE Móvil, efectivo o tarjeta." />
 
@@ -19,8 +19,7 @@
 /* ==========================================================================
    EDÉN ECO BUNGALOWS — LA FORTUNA, COSTA RICA
    Bespoke Luxury Architectural Hospitality Design System
-   Aesthetic: Contemporary Tropical Brutalism — Travertine Stone, Obsidian Ink,
-   Deep Rainforest Slate & Brushed Bronze.
+   Fully Optimized for Desktop, Tablet (iPad / Android) & Mobile (iOS / Android)
    ========================================================================== */
 
 :root {
@@ -30,7 +29,7 @@
   --bg-elevated: #FFFFFF;
   --bg-subtle: #E8E4DC;
   --bg-dark-band: #111514;
-  --bg-glass: rgba(250, 248, 245, 0.86);
+  --bg-glass: rgba(250, 248, 245, 0.90);
 
   --text-primary: #111514;
   --text-secondary: #4A524F;
@@ -79,7 +78,7 @@ html.dark {
   --bg-elevated: #171D1B;
   --bg-subtle: #1E2624;
   --bg-dark-band: #070908;
-  --bg-glass: rgba(18, 23, 22, 0.88);
+  --bg-glass: rgba(18, 23, 22, 0.92);
 
   --text-primary: #F2EFE9;
   --text-secondary: #A5AEA9;
@@ -107,16 +106,18 @@ html.dark {
   --shadow-float: 0 28px 68px rgba(0, 0, 0, 0.68);
 }
 
-/* Base Reset & SVG Safeguards */
+/* Base Reset & Touch/SVG Safeguards */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 84px;
+  scroll-padding-top: 82px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -133,6 +134,8 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 svg {
@@ -159,6 +162,7 @@ button, input, select {
   color: inherit;
   background: none;
   border: none;
+  touch-action: manipulation;
 }
 
 button {
@@ -189,22 +193,23 @@ button {
 }
 
 .header-inner {
-  height: 78px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .brand-lockup {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.8rem;
+  min-width: 0;
 }
 
 .brand-emblem {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-xs);
   display: flex;
@@ -212,20 +217,22 @@ button {
   justify-content: center;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--bronze);
   background-color: var(--bg-elevated);
+  flex-shrink: 0;
 }
 
 .brand-titles {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .brand-main {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -234,17 +241,20 @@ button {
 
 .brand-sub {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
+  font-size: 0.63rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-top: 3px;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.85rem;
   list-style: none;
 }
 
@@ -279,7 +289,8 @@ button {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .telemetry-chip {
@@ -311,13 +322,14 @@ button {
 }
 
 .lang-btn {
-  padding: 0.28rem 0.55rem;
+  padding: 0.32rem 0.58rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 600;
   border-radius: 2px;
   color: var(--text-muted);
   transition: all var(--ease-out);
+  min-height: 30px;
 }
 
 .lang-btn.active {
@@ -327,8 +339,8 @@ button {
 }
 
 .theme-btn, .mobile-toggle {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-xs);
   border: 1px solid var(--border-hairline);
   background-color: var(--bg-elevated);
@@ -349,21 +361,23 @@ button {
 }
 
 /* ==========================================================================
-   2. BUTTON SYSTEM
+   2. BUTTON SYSTEM (TOUCH-FRIENDLY MINIMUM TARGETS)
    ========================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.72rem 1.3rem;
+  padding: 0.75rem 1.3rem;
+  min-height: 44px;
   border-radius: var(--radius-xs);
-  font-size: 0.83rem;
+  font-size: 0.84rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   border: 1px solid transparent;
   transition: all var(--ease-out);
   white-space: nowrap;
+  text-align: center;
 }
 
 .btn-primary {
@@ -414,7 +428,7 @@ button {
    3. BESPOKE SPLIT-STAGE HERO + INTERACTIVE RESIDENCE SELECTOR
    ========================================================================== */
 .hero-section {
-  padding: 7rem 0 4rem;
+  padding: 6.75rem 0 3.75rem;
   border-bottom: 1px solid var(--border-hairline);
 }
 
@@ -430,7 +444,7 @@ button {
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
 }
 
 .kicker-line {
@@ -438,27 +452,28 @@ button {
   align-items: center;
   gap: 0.65rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   color: var(--bronze);
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 .kicker-line::before {
   content: "";
-  width: 24px;
+  width: 22px;
   height: 1px;
   background-color: var(--bronze);
+  flex-shrink: 0;
 }
 
 .hero-headline {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2.5rem, 4.4vw, 4.1rem);
-  line-height: 1.06;
+  font-size: clamp(2.15rem, 4.3vw, 4rem);
+  line-height: 1.08;
   letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .hero-headline em {
@@ -467,40 +482,39 @@ button {
 }
 
 .hero-lead {
-  font-size: 1.02rem;
+  font-size: clamp(0.94rem, 1.2vw, 1.02rem);
   color: var(--text-secondary);
-  max-width: 520px;
-  line-height: 1.7;
-  margin-bottom: 1.75rem;
+  max-width: 540px;
+  line-height: 1.68;
+  margin-bottom: 1.65rem;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
-/* Architectural Telemetry & Payment Strip inside Hero Left */
 .hero-specs-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--border-hairline);
   border-bottom: 1px solid var(--border-hairline);
-  padding: 1.15rem 0;
+  padding: 1.1rem 0;
   gap: 1rem;
 }
 
 .spec-col-label {
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   color: var(--text-muted);
   margin-bottom: 0.25rem;
 }
 
 .spec-col-val {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -511,11 +525,11 @@ button {
   border-radius: var(--radius-md);
   overflow: hidden;
   background-color: #101413;
-  min-height: 540px;
+  min-height: 520px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 1.4rem;
   color: #FFFFFF;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-hairline);
@@ -527,8 +541,8 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.78;
-  transition: opacity 0.4s ease, transform 6s ease;
+  opacity: 0.82;
+  transition: opacity 0.35s ease;
 }
 
 .hero-stage-overlay {
@@ -537,8 +551,8 @@ button {
   background: linear-gradient(
     180deg,
     rgba(10, 14, 13, 0.35) 0%,
-    rgba(10, 14, 13, 0.12) 45%,
-    rgba(10, 14, 13, 0.88) 100%
+    rgba(10, 14, 13, 0.1) 42%,
+    rgba(10, 14, 13, 0.90) 100%
   );
 }
 
@@ -548,17 +562,18 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .stage-pill {
-  padding: 0.38rem 0.8rem;
+  padding: 0.36rem 0.75rem;
   border-radius: var(--radius-xs);
   background: rgba(15, 20, 19, 0.68);
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -568,7 +583,7 @@ button {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
 .stage-caption-box {
@@ -576,43 +591,46 @@ button {
   align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0.9rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .stage-res-title {
   font-family: var(--font-serif);
-  font-size: 1.85rem;
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
   font-weight: 400;
   line-height: 1.15;
 }
 
 .stage-res-sub {
-  font-size: 0.86rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.82);
   margin-top: 0.25rem;
+  line-height: 1.45;
 }
 
 .stage-selector-tabs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
 .stage-tab {
   text-align: left;
-  padding: 0.7rem 0.85rem;
+  padding: 0.65rem 0.75rem;
   border-radius: var(--radius-xs);
-  background: rgba(15, 20, 19, 0.58);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(15, 20, 19, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(8px);
-  color: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.78);
   transition: all var(--ease-out);
+  min-width: 0;
 }
 
 .stage-tab:hover,
 .stage-tab.active {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   color: #111514;
   border-color: #FFFFFF;
 }
@@ -620,22 +638,25 @@ button {
 .stage-tab-num {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  opacity: 0.7;
+  font-size: 0.62rem;
+  opacity: 0.75;
   margin-bottom: 2px;
 }
 
 .stage-tab-name {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ==========================================================================
    4. SECTION HEADERS & ARCHITECTURAL LAYOUT
    ========================================================================== */
 .section {
-  padding: 5.5rem 0;
+  padding: 5rem 0;
   border-bottom: 1px solid var(--border-hairline);
 }
 
@@ -648,14 +669,14 @@ button {
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
 }
 
 .section-title {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.9rem);
   line-height: 1.12;
   letter-spacing: -0.02em;
 }
@@ -666,19 +687,19 @@ button {
 }
 
 .section-desc {
-  font-size: 0.96rem;
+  font-size: 0.94rem;
   color: var(--text-secondary);
   max-width: 500px;
   line-height: 1.65;
 }
 
 /* ==========================================================================
-   5. INTERACTIVE RESIDENCES SHOWCASE (MASTER VIEW + 3 AIRBNB RESIDENCES)
+   5. INTERACTIVE RESIDENCES SHOWCASE (3 REAL AIRBNB PROPERTIES)
    ========================================================================== */
 .residence-showcase {
   display: flex;
   flex-direction: column;
-  gap: 2.25rem;
+  gap: 2rem;
 }
 
 .residence-row {
@@ -698,56 +719,60 @@ button {
 
 .residence-gallery {
   position: relative;
-  min-height: 390px;
+  min-height: 400px;
   background-color: #121615;
   overflow: hidden;
+  touch-action: pan-y;
 }
 
 .residence-main-img {
   width: 100%;
   height: 100%;
-  min-height: 390px;
+  min-height: 400px;
   object-fit: cover;
   transition: transform 0.6s ease;
 }
 
-.residence-row:hover .residence-main-img {
-  transform: scale(1.02);
-}
-
 .res-index-badge {
   position: absolute;
-  top: 1.1rem;
-  left: 1.1rem;
-  padding: 0.35rem 0.75rem;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.34rem 0.7rem;
   border-radius: var(--radius-xs);
-  background: rgba(15, 20, 19, 0.8);
+  background: rgba(15, 20, 19, 0.82);
   color: #FFFFFF;
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
   border: 1px solid rgba(255, 255, 255, 0.16);
+  max-width: calc(100% - 2rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .res-gallery-controls {
   position: absolute;
-  bottom: 1.1rem;
-  right: 1.1rem;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  background: rgba(15, 20, 19, 0.8);
+  gap: 0.35rem;
+  background: rgba(15, 20, 19, 0.84);
   backdrop-filter: blur(8px);
-  padding: 0.3rem 0.55rem;
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.28rem 0.5rem;
   border-radius: var(--radius-xs);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
+  z-index: 3;
 }
 
 .res-nav-btn {
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 3px;
   display: inline-flex;
   align-items: center;
@@ -756,30 +781,34 @@ button {
   transition: background-color var(--ease-out);
 }
 
-.res-nav-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.res-nav-btn:hover,
+.res-nav-btn:active {
+  background-color: rgba(255, 255, 255, 0.22);
 }
 
 .res-counter {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  padding: 0 0.35rem;
+  padding: 0 0.3rem;
 }
 
 .res-thumbs-strip {
   position: absolute;
-  bottom: 1.1rem;
-  left: 1.1rem;
+  bottom: 1rem;
+  left: 1rem;
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  max-width: calc(100% - 140px);
+  max-width: calc(100% - 155px);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 0.25rem;
   border-radius: var(--radius-xs);
-  background: rgba(15, 20, 19, 0.68);
+  background: rgba(15, 20, 19, 0.72);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.16);
+  z-index: 3;
 }
 
 .res-thumbs-strip::-webkit-scrollbar {
@@ -787,12 +816,12 @@ button {
 }
 
 .res-thumb-btn {
-  width: 38px;
-  height: 28px;
+  width: 40px;
+  height: 30px;
   border-radius: 2px;
   overflow: hidden;
   border: 1.5px solid transparent;
-  opacity: 0.6;
+  opacity: 0.62;
   flex-shrink: 0;
   transition: all var(--ease-out);
 }
@@ -810,42 +839,43 @@ button {
 }
 
 .residence-details {
-  padding: 2.25rem;
+  padding: 2.15rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.4rem;
+  gap: 1.35rem;
 }
 
 .res-category {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.69rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.09em;
   color: var(--bronze);
   margin-bottom: 0.4rem;
+  line-height: 1.45;
 }
 
 .res-name {
   font-family: var(--font-serif);
-  font-size: 1.9rem;
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
   font-weight: 400;
   line-height: 1.15;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.6rem;
 }
 
 .res-description {
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   color: var(--text-secondary);
-  line-height: 1.68;
-  margin-bottom: 1.15rem;
+  line-height: 1.65;
+  margin-bottom: 1.1rem;
 }
 
 .res-blueprint-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
-  padding: 1rem 0;
+  gap: 0.55rem;
+  padding: 0.95rem 0;
   border-top: 1px solid var(--border-hairline);
   border-bottom: 1px solid var(--border-hairline);
 }
@@ -869,18 +899,18 @@ button {
 .res-cta-group {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.65rem;
 }
 
 .res-primary-buttons {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
 
-/* Payment Accordion inside each Residence */
 .payment-accordion-btn {
   width: 100%;
+  min-height: 44px;
   padding: 0.65rem 0.9rem;
   border-radius: var(--radius-xs);
   border: 1px solid var(--border-hairline);
@@ -891,6 +921,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
+  text-align: left;
   transition: all var(--ease-out);
 }
 
@@ -905,7 +937,7 @@ button {
   border-radius: var(--radius-xs);
   background-color: var(--bg-surface);
   border: 1px solid var(--border-hairline);
-  margin-top: 0.25rem;
+  margin-top: 0.2rem;
 }
 
 .payment-drawer.open {
@@ -924,7 +956,7 @@ button {
   font-family: var(--font-mono);
   font-size: 0.69rem;
   font-weight: 500;
-  padding: 0.25rem 0.55rem;
+  padding: 0.26rem 0.55rem;
   border-radius: 3px;
   background-color: var(--bg-elevated);
   border: 1px solid var(--border-strong);
@@ -936,7 +968,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.55rem 0.75rem;
   border-radius: 4px;
   background-color: var(--bronze-soft);
   border: 1px solid var(--bronze-border);
@@ -945,12 +977,13 @@ button {
 
 .copy-pill-btn {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.24rem 0.6rem;
+  padding: 0.32rem 0.7rem;
   border-radius: 3px;
   background-color: var(--text-primary);
   color: var(--bg-elevated);
+  min-height: 32px;
 }
 
 /* ==========================================================================
@@ -989,6 +1022,7 @@ button {
   height: 175px;
   overflow: hidden;
   background-color: #141918;
+  flex-shrink: 0;
 }
 
 .exp-tile-media img {
@@ -998,19 +1032,16 @@ button {
   transition: transform 0.6s ease;
 }
 
-.exp-tile:hover .exp-tile-media img {
-  transform: scale(1.05);
-}
-
 .exp-status-pill {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  padding: 0.26rem 0.65rem;
+  top: 0.7rem;
+  right: 0.7rem;
+  padding: 0.28rem 0.65rem;
   border-radius: var(--radius-xs);
-  background: rgba(15, 20, 19, 0.78);
+  background: rgba(15, 20, 19, 0.8);
   color: #FFFFFF;
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   font-family: var(--font-mono);
   font-size: 0.66rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1023,23 +1054,23 @@ button {
 }
 
 .exp-tile-body {
-  padding: 1.35rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.4rem;
   flex-grow: 1;
 }
 
 .exp-tile-title {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   font-weight: 400;
 }
 
 .exp-tile-desc {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
-  line-height: 1.58;
+  line-height: 1.55;
 }
 
 /* ==========================================================================
@@ -1048,7 +1079,7 @@ button {
 .concierge-grid {
   display: grid;
   grid-template-columns: 1fr 1.65fr;
-  gap: 2rem;
+  gap: 1.75rem;
   align-items: start;
 }
 
@@ -1056,17 +1087,17 @@ button {
   background-color: var(--bg-elevated);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-md);
-  padding: 1.85rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.2rem;
 }
 
 .weather-display {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem;
+  padding: 1.15rem;
   border-radius: var(--radius-sm);
   background-color: var(--bg-surface);
   border: 1px solid var(--border-hairline);
@@ -1074,18 +1105,18 @@ button {
 
 .weather-big-temp {
   font-family: var(--font-serif);
-  font-size: 2.85rem;
+  font-size: 2.65rem;
   line-height: 1;
 }
 
 .payment-matrix {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
 
 .pay-matrix-item {
-  padding: 0.85rem;
+  padding: 0.8rem;
   border-radius: var(--radius-xs);
   background-color: var(--bg-surface);
   border: 1px solid var(--border-hairline);
@@ -1109,34 +1140,35 @@ button {
   background-color: var(--bg-elevated);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-md);
-  padding: 2.35rem;
+  padding: 2.15rem;
 }
 
 .form-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.15rem;
-  margin-bottom: 1.35rem;
+  gap: 1.1rem;
+  margin-bottom: 1.3rem;
 }
 
 .field-label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.69rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-secondary);
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.4rem;
 }
 
 .field-input {
   width: 100%;
-  padding: 0.75rem 0.9rem;
+  min-height: 46px;
+  padding: 0.72rem 0.85rem;
   border-radius: var(--radius-xs);
   border: 1px solid var(--border-strong);
   background-color: var(--bg-surface);
   color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   transition: border-color var(--ease-out);
 }
 
@@ -1148,16 +1180,17 @@ button {
 .checks-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
+  gap: 0.55rem;
   margin-top: 0.45rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .check-pill {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.7rem 0.85rem;
+  min-height: 44px;
+  padding: 0.65rem 0.85rem;
   border-radius: var(--radius-xs);
   border: 1px solid var(--border-hairline);
   background-color: var(--bg-surface);
@@ -1171,9 +1204,10 @@ button {
 }
 
 .check-pill input {
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
   accent-color: var(--bronze);
+  flex-shrink: 0;
 }
 
 .check-pill.full-width {
@@ -1181,7 +1215,7 @@ button {
 }
 
 .summary-bar {
-  padding: 1.15rem 1.35rem;
+  padding: 1.1rem 1.25rem;
   border-radius: var(--radius-sm);
   background-color: var(--bg-surface);
   border: 1px solid var(--border-hairline);
@@ -1189,8 +1223,8 @@ button {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.35rem;
+  gap: 0.85rem;
+  margin-bottom: 1.3rem;
 }
 
 /* ==========================================================================
@@ -1199,31 +1233,31 @@ button {
 .reviews-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.35rem;
 }
 
 .editorial-review {
   background-color: var(--bg-elevated);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-md);
-  padding: 2rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1.35rem;
 }
 
 .review-quote-text {
   font-family: var(--font-serif);
-  font-size: 1.08rem;
-  line-height: 1.65;
+  font-size: 1.04rem;
+  line-height: 1.62;
   color: var(--text-primary);
 }
 
 .location-split {
   display: grid;
   grid-template-columns: 1.05fr 1.35fr;
-  gap: 2rem;
+  gap: 1.75rem;
   align-items: stretch;
 }
 
@@ -1231,38 +1265,40 @@ button {
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--border-hairline);
-  margin: 1.25rem 0;
+  margin: 1.15rem 0;
 }
 
 .distance-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 0;
+  gap: 0.35rem;
+  padding: 0.7rem 0;
   border-bottom: 1px solid var(--border-hairline);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
 }
 
 .map-canvas {
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border-hairline);
-  min-height: 430px;
+  min-height: 410px;
   background-color: var(--bg-subtle);
 }
 
 .map-canvas iframe {
   width: 100%;
   height: 100%;
-  min-height: 430px;
+  min-height: 410px;
   border: 0;
 }
 
 /* ==========================================================================
-   9. FOOTER & FLOATING WHATSAPP CONCIERGE
+   9. FOOTER, FLOATING DESKTOP CONCIERGE & MOBILE BOTTOM BAR
    ========================================================================== */
 .footer-minimal {
-  padding: 3.5rem 0 2.5rem;
+  padding: 3.25rem 0 2.5rem;
   background-color: var(--bg-elevated);
 }
 
@@ -1271,18 +1307,18 @@ button {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
-  padding-bottom: 2rem;
+  gap: 1.25rem;
+  padding-bottom: 1.75rem;
   border-bottom: 1px solid var(--border-hairline);
 }
 
 .footer-bottom {
-  padding-top: 1.5rem;
+  padding-top: 1.35rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.8rem;
+  gap: 0.85rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
@@ -1310,57 +1346,349 @@ button {
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
+/* Sticky Mobile Action Dock (Hidden on Desktop, Shown on Phones) */
+.mobile-bottom-dock {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 990;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-strong);
+  padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  grid-template-columns: 1fr 1.15fr;
+  gap: 0.6rem;
+  box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   10. TABLET OPTIMIZATION (641px — 1024px: iPad Mini, iPad Air, Android Tablets)
+   ========================================================================== */
 @media (max-width: 1024px) {
-  .hero-grid,
-  .residence-row,
-  .concierge-grid,
-  .location-split {
-    grid-template-columns: 1fr;
+  .container {
+    padding: 0 1.25rem;
   }
-  .experiences-bento {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .reviews-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
   .telemetry-chip {
     display: none;
   }
-}
 
-@media (max-width: 768px) {
   .nav-links {
     display: none;
-    position: absolute;
-    top: 78px;
+    position: fixed;
+    top: 76px;
     left: 0;
     right: 0;
     background-color: var(--bg-elevated);
-    border-bottom: 1px solid var(--border-hairline);
+    border-bottom: 1px solid var(--border-strong);
     flex-direction: column;
-    padding: 1.25rem 1.5rem;
-    gap: 1rem;
+    align-items: stretch;
+    padding: 1.25rem 1.5rem 1.5rem;
+    gap: 0.35rem;
+    box-shadow: var(--shadow-card);
   }
+
   .nav-links.open {
     display: flex;
   }
+
+  .nav-links li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 0.5rem;
+    font-size: 0.96rem;
+    border-bottom: 1px solid var(--border-hairline);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
   .mobile-toggle {
     display: inline-flex;
   }
-  .hero-specs-strip,
-  .stage-selector-tabs,
-  .res-primary-buttons,
-  .experiences-bento,
-  .reviews-row,
-  .form-grid-2,
-  .checks-grid,
-  .payment-matrix {
+
+  .hero-grid {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .hero-stage {
+    min-height: 460px;
+  }
+
+  .residence-row {
+    grid-template-columns: 1fr;
+  }
+
+  .residence-gallery,
+  .residence-main-img {
+    min-height: 360px;
+    height: 360px;
+  }
+
+  .experiences-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .concierge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .concierge-left-stack {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem !important;
+  }
+
+  .reviews-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .location-split {
+    grid-template-columns: 1fr;
+  }
+
+  .map-canvas,
+  .map-canvas iframe {
+    min-height: 360px;
   }
 }
 
-  </style>
+/* ==========================================================================
+   11. SMARTPHONE OPTIMIZATION (<= 640px: iPhone, Samsung Galaxy, Pixel)
+   ========================================================================== */
+@media (max-width: 640px) {
+  body {
+    padding-bottom: 4.5rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .header-inner {
+    height: 66px;
+  }
+
+  .nav-links {
+    top: 66px;
+  }
+
+  .brand-emblem {
+    width: 34px;
+    height: 34px;
+    font-size: 1.15rem;
+  }
+
+  .brand-main {
+    font-size: 0.92rem;
+  }
+
+  .brand-sub {
+    font-size: 0.56rem;
+  }
+
+  .header-book-btn {
+    display: none;
+  }
+
+  .hero-section {
+    padding: 5.5rem 0 2.75rem;
+  }
+
+  .hero-headline {
+    font-size: 2.05rem;
+    line-height: 1.1;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    padding: 0.7rem 0.65rem;
+    font-size: 0.78rem;
+  }
+
+  .hero-specs-strip {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    padding: 0.9rem 0;
+  }
+
+  .hero-spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .spec-col-label {
+    margin-bottom: 0;
+  }
+
+  .hero-stage {
+    min-height: 410px;
+    padding: 1rem;
+  }
+
+  .stage-caption-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .stage-caption-box .btn {
+    width: 100%;
+  }
+
+  .stage-selector-tabs {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.45rem;
+    padding-bottom: 2px;
+  }
+
+  .stage-selector-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stage-tab {
+    flex: 0 0 148px;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-head {
+    margin-bottom: 1.85rem;
+  }
+
+  .residence-gallery,
+  .residence-main-img {
+    min-height: 255px;
+    height: 255px;
+  }
+
+  .res-thumbs-strip {
+    bottom: 0.75rem;
+    left: 0.75rem;
+    max-width: calc(100% - 135px);
+  }
+
+  .res-gallery-controls {
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .residence-details {
+    padding: 1.25rem;
+    gap: 1.1rem;
+  }
+
+  .res-blueprint-grid,
+  .res-primary-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  /* Compact Horizontal Experience Cards on Phones */
+  .experiences-bento {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .exp-tile {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    align-items: stretch;
+  }
+
+  .exp-tile-media {
+    height: 100%;
+    min-height: 124px;
+  }
+
+  .exp-status-pill {
+    top: auto;
+    bottom: 0.45rem;
+    left: 0.45rem;
+    right: 0.45rem;
+    text-align: center;
+    padding: 0.2rem 0.35rem;
+    font-size: 0.58rem;
+  }
+
+  .exp-tile-body {
+    padding: 0.95rem 1rem;
+    justify-content: center;
+  }
+
+  .exp-tile-title {
+    font-size: 1.08rem;
+  }
+
+  .exp-tile-desc {
+    font-size: 0.79rem;
+  }
+
+  .concierge-left-stack {
+    grid-template-columns: 1fr !important;
+  }
+
+  .telemetry-card,
+  .concierge-form-card {
+    padding: 1.35rem;
+  }
+
+  .form-grid-2,
+  .checks-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  /* Prevent iOS Safari Auto-Zoom on Inputs */
+  .field-input {
+    font-size: 16px;
+  }
+
+  .summary-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .summary-bar > div:last-child {
+    text-align: left !important;
+  }
+
+  .reviews-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .editorial-review {
+    padding: 1.35rem;
+  }
+
+  .floating-concierge {
+    display: none;
+  }
+
+  .mobile-bottom-dock {
+    display: grid;
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -1418,14 +1746,14 @@ button {
           </svg>
         </button>
 
-        <!-- Primary Booking CTA -->
-        <a href="#concierge" class="btn btn-primary" style="padding: 0.58rem 1rem; font-size: 0.78rem;">
+        <!-- Primary Booking CTA (Desktop & Tablet) -->
+        <a href="#concierge" class="btn btn-primary header-book-btn" style="padding: 0.58rem 1rem; font-size: 0.78rem; min-height: 38px;">
           <span data-i18n="nav-cta">Reservar</span>
         </a>
 
-        <!-- Mobile Menu Toggle -->
+        <!-- Mobile & Tablet Menu Toggle -->
         <button type="button" class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menú">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -1460,15 +1788,15 @@ button {
           </div>
 
           <div class="hero-specs-strip">
-            <div>
+            <div class="hero-spec-item">
               <div class="spec-col-label" data-i18n="spec-1-lbl">Ubicación</div>
               <div class="spec-col-val" data-i18n="spec-1-val">La Fortuna, Alajuela</div>
             </div>
-            <div>
+            <div class="hero-spec-item">
               <div class="spec-col-label" data-i18n="spec-2-lbl">Calificación Airbnb</div>
               <div class="spec-col-val" data-i18n="spec-2-val">★ 4.98 · Superhost Quality</div>
             </div>
-            <div>
+            <div class="hero-spec-item">
               <div class="spec-col-label" data-i18n="spec-3-lbl">Medios de Pago</div>
               <div class="spec-col-val" data-i18n="spec-3-val">PayPal · SINPE · Efectivo · Tarjeta</div>
             </div>
@@ -1504,7 +1832,7 @@ button {
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-bronze"
-                style="padding: 0.55rem 0.95rem; font-size: 0.76rem;"
+                style="padding: 0.55rem 0.95rem; font-size: 0.78rem;"
               >
                 <span data-i18n="stage-airbnb-btn">Abrir en Airbnb</span>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1567,11 +1895,11 @@ button {
             <div class="res-thumbs-strip" id="res-thumbs-0"></div>
             <div class="res-gallery-controls">
               <button type="button" class="res-nav-btn" onclick="changeRoomSlide(0, -1)" aria-label="Anterior">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
               </button>
               <span class="res-counter" id="res-counter-0">1 / 5</span>
               <button type="button" class="res-nav-btn" onclick="changeRoomSlide(0, 1)" aria-label="Siguiente">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
               </button>
             </div>
           </div>
@@ -1641,11 +1969,11 @@ button {
             <div class="res-thumbs-strip" id="res-thumbs-1"></div>
             <div class="res-gallery-controls">
               <button type="button" class="res-nav-btn" onclick="changeRoomSlide(1, -1)" aria-label="Anterior">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
               </button>
               <span class="res-counter" id="res-counter-1">1 / 8</span>
               <button type="button" class="res-nav-btn" onclick="changeRoomSlide(1, 1)" aria-label="Siguiente">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
               </button>
             </div>
           </div>
@@ -1715,11 +2043,11 @@ button {
             <div class="res-thumbs-strip" id="res-thumbs-2"></div>
             <div class="res-gallery-controls">
               <button type="button" class="res-nav-btn" onclick="changeRoomSlide(2, -1)" aria-label="Anterior">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
               </button>
               <span class="res-counter" id="res-counter-2">1 / 8</span>
               <button type="button" class="res-nav-btn" onclick="changeRoomSlide(2, 1)" aria-label="Siguiente">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
               </button>
             </div>
           </div>
@@ -1877,7 +2205,7 @@ button {
 
       <div class="concierge-grid">
         <!-- Left Side: Weather Telemetry + Payment Methods Hub -->
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div class="concierge-left-stack" style="display: flex; flex-direction: column; gap: 1.5rem;">
           <!-- Weather Card -->
           <aside class="telemetry-card">
             <div>
@@ -2169,6 +2497,7 @@ button {
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-primary"
+              style="flex: 1 1 200px;"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -2182,6 +2511,7 @@ button {
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-outline"
+              style="flex: 1 1 160px;"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
@@ -2204,7 +2534,7 @@ button {
   </section>
 
   <!-- ========================================================================
-       8. ARCHITECTURAL FOOTER & FLOATING WHATSAPP CONCIERGE
+       8. ARCHITECTURAL FOOTER, FLOATING CONCIERGE & MOBILE BOTTOM BAR
        ======================================================================== -->
   <footer class="footer-minimal">
     <div class="container">
@@ -2217,7 +2547,7 @@ button {
           </div>
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 1.4rem; font-size: 0.84rem; color: var(--text-secondary);">
+        <div style="display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.84rem; color: var(--text-secondary);">
           <a href="https://www.airbnb.mx/rooms/1804644948837495315?unique_share_id=521fc1b9-64c3-4e9f-952d-b5fd61528e98&viralityEntryPoint=1&s=76" target="_blank" rel="noopener noreferrer">Airbnb 01 · Eden Anferg</a>
           <a href="https://www.airbnb.mx/rooms/1293799830440487852?unique_share_id=e254b20d-bc0e-439c-8d14-106ff2956caa&viralityEntryPoint=1&s=76" target="_blank" rel="noopener noreferrer">Airbnb 02 · Eden Deluxe Arenal</a>
           <a href="https://www.airbnb.mx/rooms/988456864879818369?unique_share_id=ffab125d-317f-427f-86cd-4e8f2a187663&viralityEntryPoint=1&s=76" target="_blank" rel="noopener noreferrer">Airbnb 03 · La Fortuna Edén Eco Bungalow</a>
@@ -2232,7 +2562,7 @@ button {
     </div>
   </footer>
 
-  <!-- Floating Concierge Button -->
+  <!-- Floating Concierge Button (Desktop & Tablet) -->
   <a
     href="https://wa.me/50687099538"
     target="_blank"
@@ -2245,6 +2575,19 @@ button {
     </svg>
     <span>Concierge +506 8709-9538</span>
   </a>
+
+  <!-- Sticky Bottom Action Bar (Smartphones <= 640px) -->
+  <div class="mobile-bottom-dock">
+    <a href="#concierge" class="btn btn-outline" style="background-color: var(--bg-elevated); font-size: 0.78rem; padding: 0.6rem 0.5rem;">
+      <span data-i18n="mobile-dock-book">Reservar Estadía</span>
+    </a>
+    <a href="https://wa.me/50687099538" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.78rem; padding: 0.6rem 0.5rem;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+      <span data-i18n="mobile-dock-wa">WhatsApp Directo</span>
+    </a>
+  </div>
 
   <!-- Main Script Placeholder -->
   <script>
@@ -2476,7 +2819,9 @@ const TRANSLATIONS = {
     "btn-gmaps": "Abrir Ubicación en Google Maps",
     "btn-waze": "Navegar con Waze",
 
-    "footer-copy": "© 2026 Edén Eco Bungalow · Eden Anferg · Eden Deluxe Arenal. La Fortuna, Alajuela, Costa Rica."
+    "footer-copy": "© 2026 Edén Eco Bungalow · Eden Anferg · Eden Deluxe Arenal. La Fortuna, Alajuela, Costa Rica.",
+    "mobile-dock-book": "Reservar Estadía",
+    "mobile-dock-wa": "WhatsApp Directo"
   },
   en: {
     "brand-sub": "Eco Bungalows · La Fortuna",
@@ -2597,7 +2942,9 @@ const TRANSLATIONS = {
     "btn-gmaps": "Open Location in Google Maps",
     "btn-waze": "Navigate with Waze",
 
-    "footer-copy": "© 2026 Edén Eco Bungalow · Eden Anferg · Eden Deluxe Arenal. La Fortuna, Alajuela, Costa Rica."
+    "footer-copy": "© 2026 Edén Eco Bungalow · Eden Anferg · Eden Deluxe Arenal. La Fortuna, Alajuela, Costa Rica.",
+    "mobile-dock-book": "Book Stay",
+    "mobile-dock-wa": "Direct WhatsApp"
   }
 };
 
@@ -3009,7 +3356,70 @@ function initPayPalButtons() {
 }
 
 /* --------------------------------------------------------------------------
-   10. INITIALIZE APPLICATION
+   10. NATIVE TOUCH SWIPE SUPPORT FOR MOBILE & TABLETS
+   -------------------------------------------------------------------------- */
+function initTouchSwipes() {
+  // Residence Galleries Touch Swipe
+  document.querySelectorAll(".residence-gallery").forEach((gallery, idx) => {
+    let startX = 0;
+    let startY = 0;
+
+    gallery.addEventListener(
+      "touchstart",
+      (e) => {
+        if (!e.touches || !e.touches.length) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      },
+      { passive: true }
+    );
+
+    gallery.addEventListener(
+      "touchend",
+      (e) => {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        const diffX = e.changedTouches[0].clientX - startX;
+        const diffY = e.changedTouches[0].clientY - startY;
+        if (Math.abs(diffX) > 42 && Math.abs(diffX) > Math.abs(diffY)) {
+          changeRoomSlide(idx, diffX < 0 ? 1 : -1);
+        }
+      },
+      { passive: true }
+    );
+  });
+
+  // Hero Stage Touch Swipe
+  const heroStage = document.querySelector(".hero-stage");
+  if (heroStage) {
+    let hStartX = 0;
+    let hStartY = 0;
+    heroStage.addEventListener(
+      "touchstart",
+      (e) => {
+        if (!e.touches || !e.touches.length) return;
+        hStartX = e.touches[0].clientX;
+        hStartY = e.touches[0].clientY;
+      },
+      { passive: true }
+    );
+    heroStage.addEventListener(
+      "touchend",
+      (e) => {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        const diffX = e.changedTouches[0].clientX - hStartX;
+        const diffY = e.changedTouches[0].clientY - hStartY;
+        if (Math.abs(diffX) > 42 && Math.abs(diffX) > Math.abs(diffY)) {
+          const nextStage = (activeHeroStage + (diffX < 0 ? 1 : -1) + ROOMS_DATA.length) % ROOMS_DATA.length;
+          setHeroStage(nextStage);
+        }
+      },
+      { passive: true }
+    );
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. INITIALIZE APPLICATION
    -------------------------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
   try {
@@ -3057,8 +3467,9 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSummaryBar();
   fetchWeather();
   initPayPalButtons();
+  initTouchSwipes();
 });
 
-  </script>
+</script>
 </body>
 </html>
